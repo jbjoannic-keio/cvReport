@@ -15,9 +15,6 @@ int main(int, char **)
             objp.at<float>(i * 6 + j, 1) = i;
             objp.at<float>(i * 6 + j, 2) = 0;
         }
-    // std::cout << objp << std::endl;
-    // objp = objp.t();
-    // std::cout << objp << std::endl;
 
     std::vector<cv::String> filenames;
     std::string path = "./images/*.jpg";
@@ -44,11 +41,7 @@ int main(int, char **)
 
             cv::drawChessboardCorners(image, cv::Size(6, 9), corners, ret);
             cv::imshow("corners", image);
-            cv::waitKey(5000);
-            std::cout << objp << std::endl;
-
-            std::cout << corners << std::endl;
-
+            cv::waitKey(50);
             objps.push_back(objp);
             imgps.push_back(corners);
         }
@@ -57,16 +50,7 @@ int main(int, char **)
     std::vector<cv::Mat> rvec, tvec;
     cv::Mat K, distCoeffs;
     double a = cv::calibrateCamera(objps, imgps, cv::Size(300, 400), K, distCoeffs, rvec, tvec);
-    std::cout << a << std::endl;
     std::cout << "K" << std::endl;
     std::cout << K << std::endl;
-    std::cout << "dC" << std::endl;
-    std::cout << distCoeffs << std::endl;
-    std::cout << "rv" << std::endl;
-    for (const auto &rv : rvec)
-        std::cout << rv << std::endl;
-    std::cout << "tv" << std::endl;
-    for (const auto &tv : tvec)
-        std::cout << tv << std::endl;
     cv::destroyAllWindows();
 }
