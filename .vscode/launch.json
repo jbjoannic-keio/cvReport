@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Debug Kitti",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/exec/rep1",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "BuildDebug"
+        },
+    ]
+}
