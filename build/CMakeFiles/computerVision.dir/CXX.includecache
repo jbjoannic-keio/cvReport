@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/utils.hpp
+iostream
+-
+
+/home/jbjoannic/Documents/Cours/src/utils.cpp
+utils.hpp
+/home/jbjoannic/Documents/Cours/src/utils.hpp
+

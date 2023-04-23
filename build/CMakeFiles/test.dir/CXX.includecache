@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jbjoannic/Documents/Cours/exec/test.cpp
+iostream
+-
+opencv2/opencv.hpp
+-
+opencv2/sfm/fundamental.hpp
+-
+

@@ -63,3 +63,6 @@ ${Pangolin_LIBRARIES}
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/exec)
 add_executable(rep1 exec/rep1.cpp)
 target_link_libraries(rep1 ${PROJECT_NAME})
+
+add_executable(test exec/test.cpp)
+target_link_libraries(test ${PROJECT_NAME})
