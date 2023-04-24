@@ -16,6 +16,8 @@ int main(int, char **)
         }
 
     std::vector<cv::String> filenames;
+
+    // Must be changed
     std::string path = "./images/1/zoom/*.jpg";
     std::string resultPath = "./images/1/zoom/results/";
     cv::glob(path, filenames);
@@ -42,6 +44,8 @@ int main(int, char **)
                              cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::MAX_ITER, 30, 000.1));
 
             cv::drawChessboardCorners(imageColor, cv::Size(6, 9), corners, ret);
+
+            // substr depends on the base path, should be the same as the path length
             cv::imwrite(resultPath + filename.substr(19), imageColor);
             cv::waitKey(50);
             objps.push_back(objp);
