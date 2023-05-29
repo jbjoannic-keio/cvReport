@@ -18,8 +18,10 @@ void onMouse(int event, int x, int y, int flags, void *userdata)
 int main(int, char **)
 {
     // Must be changed
-    std::string imagePath = "./images/1/default/1.jpg";
+    std::string imagePath = "./images/1/zoom/1.jpg";
+    std::string resultPath = "./images/2/results/";
     cv::Mat image = cv::imread(imagePath);
+    cv::Mat copy = image.clone();
     cv::namedWindow("Source", cv::WINDOW_NORMAL);
     cv::resizeWindow("Source", 800, 600);
     cv::namedWindow("Warped", cv::WINDOW_NORMAL);
@@ -33,22 +35,27 @@ int main(int, char **)
     std::vector<cv::Point2f> points;
     std::vector<cv::Point2f> points2;
     points2 = {{0, 0}, {300, 0}, {300, 300}, {0, 300}};
-
+    std::cout << image.rows / 20 << std::endl;
     cv::setMouseCallback("Source", onMouse, &points);
 
     while (points.size() < 4)
     {
         if (points.size() > 0)
         {
-            cv::circle(image, points[points.size() - 1], 15, cv::Scalar(0, 255, 0), -1);
+            cv::circle(copy, points[points.size() - 1], MIN(15, image.rows / 40), cv::Scalar(0, 255, 0), -1);
         }
-        cv::imshow("Source", image);
+        cv::imshow("Source", copy);
         cv::waitKey(50);
     }
+    cv::circle(copy, points[points.size() - 1], MIN(15, image.rows / 40), cv::Scalar(0, 255, 0), -1);
 
     cv::Mat M = cv::getPerspectiveTransform(points, points2);
+    std::cout << "M" << std::endl;
+    std::cout << M << std::endl;
     cv::Mat warped;
     cv::warpPerspective(image, warped, M, cv::Size(300, 300));
     cv::imshow("Warped", warped);
-    cv::waitKey(100000);
+    cv::imwrite(resultPath + "withPoints.jpg", copy);
+    cv::imwrite(resultPath + "warped.jpg", warped);
+    cv::waitKey(10000);
 }
