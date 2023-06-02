@@ -65,5 +65,8 @@ target_link_libraries(rep2 ${PROJECT_NAME})
 add_executable(rep3 exec/rep3.cpp)
 target_link_libraries(rep3 ${PROJECT_NAME})
 
+add_executable(rep4 exec/rep4.cpp)
+target_link_libraries(rep4 ${PROJECT_NAME})
+
 add_executable(test exec/test.cpp)
 target_link_libraries(test ${PROJECT_NAME})
