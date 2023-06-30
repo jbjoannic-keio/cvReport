@@ -9,3 +9,5 @@
 ## Report 3 - Panorama - 08/05/2023
 - The cpp program can be found [here](exec/rep3.cpp)
 - `std::string folderPath` must be changed ([link to variable declaration](exec/rep3.cpp#L18))
+## Report 5 - Detectron 2 - 03/07/2023
+- The jupyter notebook can be found [here](exec/rep5.ipynb)
