@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <opencv2/opencv.hpp>
+#include <Eigen/Dense>
 
 int main(int argc, char *argv[])
 {
@@ -63,6 +64,7 @@ int main(int argc, char *argv[])
         imagesWithFeatures.push_back(imgWithFeatures);
 
         cv::imshow("Image", imgWithFeatures);
+        cv::waitKey(1);
 
         std::string res_path = folderPath + "/results/" + "features_" + std::to_string(i) + ".png";
         cv::imwrite(res_path, imgWithFeatures);
